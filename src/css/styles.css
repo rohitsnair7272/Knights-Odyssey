@@ -1,0 +1,175 @@
+@font-face {
+  font-family: Anton;
+  src: url("../fonts/Anton-Regular.ttf");
+}
+
+:root {
+  --color-chessboard-black: black;
+  --color-chessboard-red: red;
+  --color-chessboard-white: white;
+}
+
+body {
+  user-select: none;
+  font-family: Anton;
+
+  height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-rows: 4rem 5fr 1fr 1fr 8rem 2rem;
+  justify-content: center;
+  justify-items: center;
+}
+
+.header {
+  font-size: 2rem;
+
+  display: grid;
+  place-content: center;
+}
+
+.chessboard {
+  width: fit-content;
+  height: fit-content;
+
+  border-style: solid;
+  border-width: 0.25rem;
+
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.chessboard .chessboard-row {
+  width: fit-content;
+  height: fit-content;
+
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.chessboard .square {
+  position: relative;
+
+  width: min(11vw, 6rem);
+  aspect-ratio: 1/1;
+
+  display: grid;
+  place-content: center;
+}
+
+.chessboard .square.black {
+  background-color: var(--color-chessboard-black);
+}
+
+.chessboard .square.white {
+  background-color: var(--color-chessboard-white);
+}
+
+.chessboard .square img{
+  width: min(7vw, 4rem);
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.chessboard .square img.dragging {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.chessboard .square img.draggable.target {
+  padding: 0.25rem;
+  border-style: solid;
+  border-width: 0.25rem;
+  border-radius: 1rem;
+  border-color: var(--color-chessboard-red);
+}
+
+.chessboard .square .move {
+  height: 2rem;
+  width: 2rem;
+
+  font-size: 1rem;
+  color: var(--color-chessboard-white);
+
+  background-color: var(--color-chessboard-red);
+
+  border-radius: 1rem;
+
+  display: grid;
+  place-content: center;
+}
+
+.moves {
+  margin: 0 5vw;
+
+  font-size: 1.25rem;
+  color: var(--color-chessboard-red);
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.instructions {
+  margin: 0 5vw;
+
+  font-size: 1.25rem;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.legend div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+}
+
+.legend img {
+  height: 4rem;
+}
+
+.legend p {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  font-size: 1.1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.footer a {
+  color: var(--color-chessboard-black);
+
+  display: grid;
+  place-content: center;
+
+  text-decoration: none;
+}
+
+.footer img {
+  height: 1.25rem;
+
+}
